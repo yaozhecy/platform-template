@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "platform.cy.generator.author",
+      "type": "java.lang.String",
+      "description": "作者."
+    },
+    {
+      "name": "platform.cy.generator.projectPath",
+      "type": "java.lang.String",
+      "description": "Description for platform.cy.generator.projectPath."
+    },
+    {
+      "name": "platform.cy.generator.interProjectPath",
+      "type": "java.lang.String",
+      "description": "Description for platform.cy.generator.projectPath."
+    }
+  ]
+}
