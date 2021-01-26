@@ -10,12 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>platform-datasource</artifactId>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>com.cy.platform</groupId>
+            <artifactId>platform-common</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
         <!--Mybatis Plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -45,6 +46,18 @@
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
+        </dependency>
+
+        <!--redis 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!--mongodb 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 </project>

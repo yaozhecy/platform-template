@@ -2,10 +2,13 @@ package com.cy.platform.component.datasource;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
+import com.cy.platform.component.datasource.plus.PlatformSqlInjector;
+import com.cy.platform.component.datasource.redis.ObjectRedisTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 /**
  * Configuration注解的类可以看作是能生产让Spring IoC容器管理的Bean实例的工厂
@@ -17,8 +20,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties()
-@ConditionalOnClass()
+@ConditionalOnClass({PlatformSqlInjector.class, MapperHelper.class})
 public class PlatformDataSourceConfiguration {
+
+    @Bean
+    public ObjectRedisTemplate objectRedisTemplate(RedisConnectionFactory factory) {
+        return new ObjectRedisTemplate(factory);
+    }
 
     /**
      * 启动mybatis分页插件

@@ -12,6 +12,7 @@
         <module>platform-core</module>
         <module>platform-component</module>
         <module>platform-server</module>
+        <module>platform-common</module>
     </modules>
 
     <properties>
