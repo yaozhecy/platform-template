@@ -11,6 +11,7 @@ import com.cy.platform.component.datasource.base.BaseEntity;
 import com.cy.platform.component.datasource.constant.SqlMethodConstant;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import java.util.Map;
  * @author 陈阳
  * @date 2020-02-21
  */
+@Component
 public class MapperHelper {
     /**
      * 根据参数查询是否存在
