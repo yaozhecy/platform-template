@@ -13,16 +13,4 @@
     <modules>
         <module>platform-server-starter</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.cy.platform</groupId>
-                <artifactId>platform-dependencies</artifactId>
-                <version>1.0.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
