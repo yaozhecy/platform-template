@@ -2,11 +2,10 @@ package com.cy.platform.component.datasource;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
-import com.cy.platform.component.datasource.plus.PlatformSqlInjector;
 import com.cy.platform.component.datasource.redis.ObjectRedisTemplate;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
@@ -19,14 +18,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
  * @author develop
  */
 @Configuration
-@EnableConfigurationProperties()
-@ConditionalOnClass({PlatformSqlInjector.class, MapperHelper.class})
+@EnableConfigurationProperties
+@ComponentScan("com.cy.platform.component.datasource")
 public class PlatformDataSourceConfiguration {
-
-    @Bean
-    public ObjectRedisTemplate objectRedisTemplate(RedisConnectionFactory factory) {
-        return new ObjectRedisTemplate(factory);
-    }
 
     /**
      * 启动mybatis分页插件

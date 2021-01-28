@@ -1,5 +1,15 @@
+server:
+  servlet:
+    context-path: /account
+
 ## 数据源配置
 spring:
+  application:
+    name: account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.37.5.66:8848
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
