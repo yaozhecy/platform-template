@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /gateway
+
+## 数据源配置
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.37.5.66:8848
