@@ -13,7 +13,6 @@ public class LoginInfoReq {
      * 登录用户
      */
     private String loginUser;
-
     /**
      * 登录密码
      */

@@ -29,6 +29,7 @@ public class AuthController {
     @PostMapping("/register")
     public Mono<String> register(Mono<AuthUserVo> authUser) {
         final String path = "register";
+        authService.saveUser(authUser);
         return Mono.create(monoSink -> monoSink.success(path));
     }
 }

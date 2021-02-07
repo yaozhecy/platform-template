@@ -2,6 +2,7 @@ package com.cy.platform.cloud.gateway.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cy.platform.cloud.gateway.model.AuthUserEntity;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,5 +12,6 @@ import com.cy.platform.cloud.gateway.model.AuthUserEntity;
  * @author cy
  * @since 2020-06-10
  */
+@Mapper
 public interface AuthUserMapper extends BaseMapper<AuthUserEntity> {
 }
