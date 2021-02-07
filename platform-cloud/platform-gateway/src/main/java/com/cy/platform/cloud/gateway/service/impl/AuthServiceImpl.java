@@ -4,6 +4,7 @@ import com.cy.platform.cloud.gateway.mapper.AuthUserMapper;
 import com.cy.platform.cloud.gateway.model.AuthUserEntity;
 import com.cy.platform.cloud.gateway.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 /**
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
  *
  * @author develop
  */
+@Service
 public class AuthServiceImpl implements AuthService {
     @Autowired
     private AuthUserMapper authUserMapper;
