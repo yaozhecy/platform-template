@@ -21,6 +21,11 @@ public class TemplateController {
         return Mono.create(monoSink -> monoSink.success(path));
     }
 
+    @GetMapping("/register")
+    public Mono<String> register(final Model model) {
+        return Mono.create(monoSink -> monoSink.success("register"));
+    }
+
     @GetMapping("/dashboard")
     public Mono<String> dashboard(final Model model) {
         String path = "dashboard";
