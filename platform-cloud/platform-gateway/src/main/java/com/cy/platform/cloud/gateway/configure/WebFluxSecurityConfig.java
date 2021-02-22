@@ -74,7 +74,7 @@ public class WebFluxSecurityConfig {
         bearerAuthenticationFilter.setServerAuthenticationConverter(new AuthenticationConverter());
         //step 4：配置过滤路径
         bearerAuthenticationFilter.setRequiresAuthenticationMatcher(
-            ServerWebExchangeMatchers.pathMatchers("/api/**"));
+            ServerWebExchangeMatchers.pathMatchers("/**"));
         return bearerAuthenticationFilter;
     }
 }

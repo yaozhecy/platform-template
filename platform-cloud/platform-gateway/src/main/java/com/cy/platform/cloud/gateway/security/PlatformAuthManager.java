@@ -10,7 +10,6 @@ import reactor.core.publisher.Mono;
  * @author 56807
  */
 public class PlatformAuthManager implements ReactiveAuthenticationManager {
-    
     /**
      * 认证接口
      */
