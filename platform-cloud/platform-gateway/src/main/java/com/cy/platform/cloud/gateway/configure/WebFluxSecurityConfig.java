@@ -1,8 +1,9 @@
 package com.cy.platform.cloud.gateway.configure;
 
-import com.cy.platform.cloud.gateway.security.BasicAuthenticationSuccessHandler;
-import com.cy.platform.cloud.gateway.security.BearerTokenReactiveAuthenticationManager;
-import com.cy.platform.cloud.gateway.security.ServerHttpBearerAuthenticationConverter;
+import com.cy.platform.cloud.gateway.security.AuthenticationConverter;
+import com.cy.platform.cloud.gateway.security.AuthenticationSuccessHandler;
+import com.cy.platform.cloud.gateway.security.PlatformAuthManager;
+import com.cy.platform.cloud.gateway.security.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -10,18 +11,10 @@ import org.springframework.security.authentication.UserDetailsRepositoryReactive
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.MapReactiveUserDetailsService;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
-import org.springframework.security.web.server.authentication.ServerAuthenticationSuccessHandler;
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
-
-import java.util.function.Function;
 
 /**
  * 前后端分离验证，实现思路:
@@ -37,20 +30,8 @@ public class WebFluxSecurityConfig {
     private static final String LOGOUT_PTAH = "/logout";
 
     @Bean
-    public MapReactiveUserDetailsService userDetailsRepository() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-            .username("user")
-            .password("user")
-            .roles("USER", "ADMIN")
-            .build();
-        return new MapReactiveUserDetailsService(user);
-    }
-
-
-    @Bean
-    public SecurityWebFilterChain initSecurityWebFilterChain(ServerHttpSecurity http) {
-        http
-            .authorizeExchange()
+    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
+        http.authorizeExchange()
             .pathMatchers("/login", "/")
             .authenticated()
             .and()
@@ -64,48 +45,36 @@ public class WebFluxSecurityConfig {
     }
 
     /**
-     * Use the already implemented logic in  AuthenticationWebFilter and set a custom
-     * SuccessHandler that will return a JWT when a user is authenticated with user/password
-     * Create an AuthenticationManager using the UserDetailsService defined above
+     * 登录校验过滤器
      *
-     * @return AuthenticationWebFilter
+     * @return 过滤器
      */
-    private AuthenticationWebFilter basicAuthenticationFilter(){
-        UserDetailsRepositoryReactiveAuthenticationManager authManager;
-        AuthenticationWebFilter basicAuthenticationFilter;
-        ServerAuthenticationSuccessHandler successHandler;
-
-        authManager = new UserDetailsRepositoryReactiveAuthenticationManager(userDetailsRepository());
-        successHandler = new BasicAuthenticationSuccessHandler();
-
-        basicAuthenticationFilter = new AuthenticationWebFilter(authManager);
-        basicAuthenticationFilter.setAuthenticationSuccessHandler(successHandler);
-
+    private AuthenticationWebFilter basicAuthenticationFilter() {
+        //step 1:创建用户认证器
+        UserDetailsRepositoryReactiveAuthenticationManager authManager = new UserDetailsRepositoryReactiveAuthenticationManager(new UserDetailsServiceImpl());
+        authManager.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        //step 2:创建校验过滤器，并设置用户认证器
+        AuthenticationWebFilter basicAuthenticationFilter = new AuthenticationWebFilter(authManager);
+        //step 3:设置成功出来方式
+        basicAuthenticationFilter.setAuthenticationSuccessHandler(new AuthenticationSuccessHandler());
         return basicAuthenticationFilter;
-
     }
 
     /**
-     * Use the already implemented logic by AuthenticationWebFilter and set a custom
-     * converter that will handle requests containing a Bearer token inside
-     * the HTTP Authorization header.
-     * Set a dummy authentication manager to this filter, it's not needed because
-     * the converter handles this.
+     * 配置持有者校验过滤器
      *
-     * @return bearerAuthenticationFilter that will authorize requests containing a JWT
+     * @return 过滤器
      */
-    private AuthenticationWebFilter bearerAuthenticationFilter(){
-        AuthenticationWebFilter bearerAuthenticationFilter;
-        Function<ServerWebExchange, Mono<Authentication>> bearerConverter;
-        ReactiveAuthenticationManager authManager;
-
-        authManager  = new BearerTokenReactiveAuthenticationManager();
-        bearerAuthenticationFilter = new AuthenticationWebFilter(authManager);
-        bearerConverter = new ServerHttpBearerAuthenticationConverter();
-
-        bearerAuthenticationFilter.setAuthenticationConverter(bearerConverter);
-        bearerAuthenticationFilter.setRequiresAuthenticationMatcher(ServerWebExchangeMatchers.pathMatchers("/api/**"));
-
+    private AuthenticationWebFilter bearerAuthenticationFilter() {
+        //step 1：配置校验管理器
+        ReactiveAuthenticationManager authManager = new PlatformAuthManager();
+        //step 2：创建校验过滤器
+        AuthenticationWebFilter bearerAuthenticationFilter = new AuthenticationWebFilter(authManager);
+        //step 3：创建校验数据转换器
+        bearerAuthenticationFilter.setServerAuthenticationConverter(new AuthenticationConverter());
+        //step 4：配置过滤路径
+        bearerAuthenticationFilter.setRequiresAuthenticationMatcher(
+            ServerWebExchangeMatchers.pathMatchers("/api/**"));
         return bearerAuthenticationFilter;
     }
 }

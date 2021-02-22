@@ -9,28 +9,21 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * On success authentication a signed JWT object is serialized and added
- * in the authorization header as a bearer token
+ * 认证成功处理方法
+ *
+ * @author 56807
  */
 @Component
-public class BasicAuthenticationSuccessHandler
-    implements ServerAuthenticationSuccessHandler {
-
+public class PlatformAuthSuccessHandler implements ServerAuthenticationSuccessHandler {
     /**
-     * A successful authentication object us used to create a JWT object and
-     * added in the authorization header of the current WebExchange
-     *
-     * @param webFilterExchange
-     * @param authentication
-     * @return
+     * 认证成功
      */
     @Override
     public Mono<Void> onAuthenticationSuccess(WebFilterExchange webFilterExchange, Authentication authentication) {
         ServerWebExchange exchange = webFilterExchange.getExchange();
-        //TODO refactor this nasty implementation
         exchange.getResponse()
-            .getHeaders()
-            .add(HttpHeaders.AUTHORIZATION, "test");
+                .getHeaders()
+                .add(HttpHeaders.AUTHORIZATION, "test");
         return webFilterExchange.getChain().filter(exchange);
     }
 }
