@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>platform-server-manage</module>
+        <module>platform-server-test</module>
     </modules>
 
     <build>
