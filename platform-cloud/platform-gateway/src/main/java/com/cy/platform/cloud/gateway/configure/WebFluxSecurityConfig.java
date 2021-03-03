@@ -14,7 +14,6 @@ import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
-import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers;
 
 /**
  * 前后端分离验证，实现思路:
@@ -31,16 +30,23 @@ public class WebFluxSecurityConfig {
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http.authorizeExchange()
-            .pathMatchers("/login", "/")
+        http
+            .formLogin()
+            .loginPage("/template/login")
+            .and()
+            .authorizeExchange()
+            .pathMatchers("/dist/**", "/template/login")
+            .permitAll()
+            .and()
+            .authorizeExchange()
+            .pathMatchers("/auth/login")
             .authenticated()
             .and()
             .addFilterAt(basicAuthenticationFilter(), SecurityWebFiltersOrder.HTTP_BASIC)
             .authorizeExchange()
-            .pathMatchers("/api/**")
-            .authenticated()
             .and()
             .addFilterAt(bearerAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION);
+        http.csrf().disable();
         return http.build();
     }
 
@@ -72,9 +78,6 @@ public class WebFluxSecurityConfig {
         AuthenticationWebFilter bearerAuthenticationFilter = new AuthenticationWebFilter(authManager);
         //step 3：创建校验数据转换器
         bearerAuthenticationFilter.setServerAuthenticationConverter(new AuthenticationConverter());
-        //step 4：配置过滤路径
-        bearerAuthenticationFilter.setRequiresAuthenticationMatcher(
-            ServerWebExchangeMatchers.pathMatchers("/api/**"));
         return bearerAuthenticationFilter;
     }
 }
