@@ -25,27 +25,24 @@ import org.springframework.security.web.server.authentication.AuthenticationWebF
 @Configuration
 @EnableWebFluxSecurity
 public class WebFluxSecurityConfig {
-    private static final String LOGIN_PATH = "/login";
+    private static final String STATIC_PATH = "/dist/**";
+    private static final String LOGIN_PAGE_PATH = "/template/login";
+    private static final String LOGIN_PATH = "/auth/login";
     private static final String LOGOUT_PTAH = "/logout";
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http
-            .formLogin()
-            .loginPage("/template/login")
-            .and()
-            .authorizeExchange()
-            .pathMatchers("/dist/**", "/template/login")
-            .permitAll()
-            .and()
-            .authorizeExchange()
-            .pathMatchers("/auth/login")
-            .authenticated()
-            .and()
-            .addFilterAt(basicAuthenticationFilter(), SecurityWebFiltersOrder.HTTP_BASIC)
-            .authorizeExchange()
-            .and()
-            .addFilterAt(bearerAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION);
+        //step 1.添加忽略路径
+        http.authorizeExchange().pathMatchers(STATIC_PATH, LOGIN_PAGE_PATH).permitAll();
+        //step 2.设置登录界面
+        http.formLogin().loginPage(LOGIN_PAGE_PATH);
+        //step 3.登录认证路径
+        http.authorizeExchange().pathMatchers(LOGIN_PATH).authenticated();
+        //step 4.添加登录认证过滤器
+        http.addFilterAt(basicAuthenticationFilter(), SecurityWebFiltersOrder.HTTP_BASIC).authorizeExchange();
+        //step 5.添加认证过滤器
+        //http.addFilterAt(bearerAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION);
+        //step 6.禁止csrf
         http.csrf().disable();
         return http.build();
     }

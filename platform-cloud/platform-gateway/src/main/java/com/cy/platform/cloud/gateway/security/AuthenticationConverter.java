@@ -40,7 +40,7 @@ public class AuthenticationConverter implements ServerAuthenticationConverter {
 
             @Override
             public boolean isAuthenticated() {
-                return true;
+                return false;
             }
 
             @Override
