@@ -22,7 +22,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public Mono<String> login(Mono<LoginInfoReq> person) {
-        String path = "dashboard";
+        String path = "/main/dashboard";
         return Mono.create(monoSink -> monoSink.success(path));
     }
 

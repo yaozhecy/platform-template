@@ -3,6 +3,7 @@ package com.cy.platform.cloud.gateway.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import reactor.core.publisher.Mono;
 
@@ -21,6 +22,12 @@ public class TemplateController {
         return Mono.create(monoSink -> monoSink.success(path));
     }
 
+    @PostMapping("/login")
+    public Mono<String> login(final Model model) {
+        String path = "dashboard";
+        return Mono.create(monoSink -> monoSink.success(path));
+    }
+
     @GetMapping("/register")
     public Mono<String> register(final Model model) {
         return Mono.create(monoSink -> monoSink.success("register"));
@@ -28,7 +35,7 @@ public class TemplateController {
 
     @GetMapping("/dashboard")
     public Mono<String> dashboard(final Model model) {
-        String path = "dashboard";
+        String path = "/main/dashboard";
         return Mono.create(monoSink -> monoSink.success(path));
     }
 }

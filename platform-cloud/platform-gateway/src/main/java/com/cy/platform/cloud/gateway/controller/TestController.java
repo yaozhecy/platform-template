@@ -3,12 +3,14 @@ package com.cy.platform.cloud.gateway.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import reactor.core.publisher.Mono;
 
 /**
  * @author develop
  */
 @Controller
+@RequestMapping("/test")
 public class TestController {
     @GetMapping("/login")
     public Mono<String> hello(final Model model) {
