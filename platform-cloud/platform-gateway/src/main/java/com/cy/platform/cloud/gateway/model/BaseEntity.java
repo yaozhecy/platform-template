@@ -3,6 +3,7 @@ package com.cy.platform.cloud.gateway.model;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.cy.platform.cloud.gateway.constant.DeleteFlag;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,11 +22,11 @@ public abstract class BaseEntity<T extends Model<?>> extends Model<T> implements
     private Long id;
 
     @TableField(value = "create_by")
-    private Long createBy;
+    private String createBy;
 
     @TableField(value = "create_on")
     private LocalDateTime createOn;
 
     @TableField(value = "delete_flag")
-    private String deleteFlag;
+    private DeleteFlag deleteFlag;
 }

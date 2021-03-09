@@ -1,4 +1,4 @@
-package com.cy.platform.cloud.gateway.security;
+package com.cy.platform.cloud.gateway.core.security;
 
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -13,11 +13,13 @@ import java.util.Collection;
  * @author 56807
  */
 public class PlatformAuthManager implements ReactiveAuthenticationManager {
+
     /**
      * 认证接口
      */
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
+
         Authentication authentication1 = new Authentication() {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
