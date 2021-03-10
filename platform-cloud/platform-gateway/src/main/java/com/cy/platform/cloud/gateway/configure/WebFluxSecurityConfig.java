@@ -2,7 +2,7 @@ package com.cy.platform.cloud.gateway.configure;
 
 import com.cy.platform.cloud.gateway.core.security.PlatformAuthManager;
 import com.cy.platform.cloud.gateway.core.security.UserDetailsServiceImpl;
-import com.cy.platform.cloud.gateway.security.AuthenticationConverter;
+import com.cy.platform.cloud.gateway.core.security.AuthenticationConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

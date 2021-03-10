@@ -1,4 +1,4 @@
-package com.cy.platform.cloud.gateway.security;
+package com.cy.platform.cloud.gateway.core.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
