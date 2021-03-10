@@ -1,7 +1,7 @@
-package com.cy.platform.cloud.gateway.transform;
+package com.cy.platform.cloud.gateway.core.transform;
 
-import com.cy.platform.cloud.gateway.model.AuthUserEntity;
-import com.cy.platform.cloud.gateway.vo.AuthUserVo;
+import com.cy.platform.cloud.gateway.db.model.AuthUserEntity;
+import com.cy.platform.cloud.gateway.db.vo.AuthUserVo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

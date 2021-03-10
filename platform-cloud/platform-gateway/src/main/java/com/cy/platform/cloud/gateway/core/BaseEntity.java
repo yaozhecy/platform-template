@@ -3,7 +3,7 @@ package com.cy.platform.cloud.gateway.core;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.cy.platform.cloud.gateway.constant.DeleteFlag;
+import com.cy.platform.cloud.gateway.core.constant.DeleteFlag;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,4 +1,4 @@
-package com.cy.platform.cloud.gateway.model;
+package com.cy.platform.cloud.gateway.db.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

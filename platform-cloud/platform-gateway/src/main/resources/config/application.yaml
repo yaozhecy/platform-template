@@ -12,4 +12,4 @@ spring:
   session:
     store-type: redis
 mybatis-plus:
-  typeEnumsPackage: com.cy.platform.cloud.gateway.constant
+  typeEnumsPackage: com.cy.platform.cloud.gateway.core.constant

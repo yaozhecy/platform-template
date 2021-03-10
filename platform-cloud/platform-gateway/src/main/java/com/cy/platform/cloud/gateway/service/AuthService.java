@@ -1,7 +1,7 @@
 package com.cy.platform.cloud.gateway.service;
 
-import com.cy.platform.cloud.gateway.model.AuthUserEntity;
-import com.cy.platform.cloud.gateway.vo.AuthUserVo;
+import com.cy.platform.cloud.gateway.db.model.AuthUserEntity;
+import com.cy.platform.cloud.gateway.db.vo.AuthUserVo;
 import reactor.core.publisher.Mono;
 
 /**

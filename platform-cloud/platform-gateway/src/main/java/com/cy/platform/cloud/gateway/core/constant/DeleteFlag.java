@@ -1,4 +1,4 @@
-package com.cy.platform.cloud.gateway.constant;
+package com.cy.platform.cloud.gateway.core.constant;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.Getter;

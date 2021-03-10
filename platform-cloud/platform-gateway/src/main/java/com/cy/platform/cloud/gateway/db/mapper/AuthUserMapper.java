@@ -1,7 +1,7 @@
-package com.cy.platform.cloud.gateway.mapper;
+package com.cy.platform.cloud.gateway.db.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cy.platform.cloud.gateway.model.AuthUserEntity;
+import com.cy.platform.cloud.gateway.db.model.AuthUserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

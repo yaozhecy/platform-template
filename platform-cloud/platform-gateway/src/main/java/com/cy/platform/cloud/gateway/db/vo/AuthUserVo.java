@@ -1,14 +1,14 @@
-package com.cy.platform.cloud.gateway.vo;
+package com.cy.platform.cloud.gateway.db.vo;
 
 import lombok.Data;
 
 /**
- * 登录参数
+ * 认证用户
  *
- * @author 56807
+ * @author develop
  */
 @Data
-public class LoginInfoReq {
+public class AuthUserVo {
     /**
      * 登录用户
      */
@@ -16,5 +16,5 @@ public class LoginInfoReq {
     /**
      * 登录密码
      */
-    private String password;
+    private String passWord;
 }

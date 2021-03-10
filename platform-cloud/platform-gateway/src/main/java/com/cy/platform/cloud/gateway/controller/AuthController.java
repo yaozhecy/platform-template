@@ -1,8 +1,8 @@
 package com.cy.platform.cloud.gateway.controller;
 
 import com.cy.platform.cloud.gateway.service.AuthService;
-import com.cy.platform.cloud.gateway.vo.AuthUserVo;
-import com.cy.platform.cloud.gateway.vo.LoginInfoReq;
+import com.cy.platform.cloud.gateway.db.vo.AuthUserVo;
+import com.cy.platform.cloud.gateway.db.vo.LoginInfoReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

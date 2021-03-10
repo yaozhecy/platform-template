@@ -1,9 +1,9 @@
 package com.cy.platform.cloud.gateway.core.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.cy.platform.cloud.gateway.constant.DeleteFlag;
-import com.cy.platform.cloud.gateway.mapper.AuthUserMapper;
-import com.cy.platform.cloud.gateway.model.AuthUserEntity;
+import com.cy.platform.cloud.gateway.core.constant.DeleteFlag;
+import com.cy.platform.cloud.gateway.db.mapper.AuthUserMapper;
+import com.cy.platform.cloud.gateway.db.model.AuthUserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;

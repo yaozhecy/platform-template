@@ -1,11 +1,11 @@
 package com.cy.platform.cloud.gateway.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.cy.platform.cloud.gateway.mapper.AuthUserMapper;
-import com.cy.platform.cloud.gateway.model.AuthUserEntity;
+import com.cy.platform.cloud.gateway.db.mapper.AuthUserMapper;
+import com.cy.platform.cloud.gateway.db.model.AuthUserEntity;
 import com.cy.platform.cloud.gateway.service.AuthService;
-import com.cy.platform.cloud.gateway.transform.CommonTransform;
-import com.cy.platform.cloud.gateway.vo.AuthUserVo;
+import com.cy.platform.cloud.gateway.core.transform.CommonTransform;
+import com.cy.platform.cloud.gateway.db.vo.AuthUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
