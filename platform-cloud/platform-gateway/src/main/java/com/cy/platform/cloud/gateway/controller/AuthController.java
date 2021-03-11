@@ -20,13 +20,10 @@ import reactor.core.publisher.Mono;
 public class AuthController {
     @Autowired
     private AuthService authService;
-    @Value("${version}")
-    private String version;
 
     @PostMapping("/login")
     public Mono<String> login(Mono<LoginInfoReq> person) {
         String path = "/main/dashboard";
-        System.out.println(version);
         return Mono.create(monoSink -> monoSink.success(path));
     }
 
