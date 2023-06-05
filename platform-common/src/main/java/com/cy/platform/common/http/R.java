@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -18,7 +17,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Slf4j
 public class R<T> implements Serializable {
-    @Serial
     private static final long serialVersionUID = -8754146517299676600L;
 
     /**
