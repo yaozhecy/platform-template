@@ -1,0 +1,43 @@
+#foreach ($table in $tables)
+-- ----------------------------
+-- Table structure for TB_UPS_XTZNXX
+-- ----------------------------
+IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[${table.tableName}]') AND type IN ('U'))
+DROP TABLE [dbo].[${table.tableName}]
+    GO
+
+CREATE TABLE [dbo].[${table.tableName}] (
+#foreach ($column in $table.columns)
+    #if($column.dataType == "varchar")
+[${column.columnName}] varchar(${column.length}) COLLATE Chinese_PRC_CI_AS ${column.notNull} NULL,
+    #elseif($column.dataType == "int")
+[${column.columnName}] int ${column.notNull} NULL,
+   #elseif($column.dataType == "datetime2")
+[${column.columnName}] datetime2 ${column.notNull} NULL,
+    #else
+[${column.columnName}] nvarchar(22) COLLATE Chinese_PRC_CI_AS ${column.notNull} NULL,
+    #end
+#end
+    )
+    GO
+
+ALTER TABLE [dbo].[${table.tableName}] SET (LOCK_ESCALATION = TABLE)
+    GO
+
+    #foreach ($column in $table.columns)
+    EXEC sp_addextendedproperty
+    'MS_Description', N'${column.comments}',
+    'SCHEMA', N'dbo',
+    'TABLE', N'${table.tableName}',
+    'COLUMN', N'${column.columnName}'
+    GO
+    #end
+
+    -- ----------------------------
+-- Primary Key structure for table TB_DB_KBXX
+-- ----------------------------
+ALTER TABLE [dbo].[${table.tableName}] ADD CONSTRAINT [${table.pkUuid}] PRIMARY KEY CLUSTERED ([CID])
+    WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+    ON [PRIMARY]
+    GO
+#end

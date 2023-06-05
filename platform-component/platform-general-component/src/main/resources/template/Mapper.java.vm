@@ -1,0 +1,14 @@
+package ${package}.${moduleName}.server.domain.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import ${package}.${moduleName}.server.domain.po.${englishName}Po;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ */
+@Mapper
+public interface ${englishName}Mapper extends BaseMapper<${englishName}Po> {
+}

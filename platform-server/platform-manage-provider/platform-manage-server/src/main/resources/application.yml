@@ -1,0 +1,9 @@
+server:
+  port: 6601
+  servlet:
+    context-path: /manage
+spring:
+  application:
+    name: manage-server
+  profiles:
+    active: nacos,envs

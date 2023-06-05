@@ -1,0 +1,37 @@
+package ${package}.${moduleName}.server.domain.transfor;
+
+import ${package}.${moduleName}.domain.vo.${englishName}Vo;
+import ${package}.${moduleName}.server.domain.po.${className}Po;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.factory.Mappers;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ */
+@Mapper
+public interface ${englishName}Transfor {
+    ${englishName}Transfor INSTANCE = Mappers.getMapper(${englishName}Transfor.class);
+
+    /**
+    * toVo
+    * @param po Po
+    * @return Vo
+    */
+    @Mappings({
+ #foreach ($column in $columns)
+ @Mapping(source = "${column.englishName}", target = "${column.englishName}"),
+ #end
+    })
+    ${englishName}Vo toVo(${englishName}Po po);
+
+    /**
+    * toPo
+    * @param vo vo
+    * @return Po
+    */
+    ${englishName}Po toPo(${englishName}Vo vo);
+}
