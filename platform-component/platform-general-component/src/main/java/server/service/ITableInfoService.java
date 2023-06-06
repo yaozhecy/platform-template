@@ -2,11 +2,11 @@ package server.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cy.platform.generation.server.core.model.TableInfo;
-import com.cy.platform.generation.server.domain.model.TableInfoPo;
-import com.cy.platform.generation.server.domain.vo.TableInfoVo;
-import com.cy.platform.generation.server.domain.vo.TableListVo;
-import com.cy.platform.generation.server.domain.vo.table.TableParamVo;
+import server.domain.model.TableInfoPo;
+import server.domain.vo.TableInfoVo;
+import server.domain.vo.TableListVo;
+import server.domain.vo.table.TableParamVo;
+
 
 import java.util.List;
 

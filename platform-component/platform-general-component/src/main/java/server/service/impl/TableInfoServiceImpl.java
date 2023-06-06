@@ -4,16 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cy.platform.generation.server.common.ServiceAssert;
-import com.cy.platform.generation.server.core.model.TableInfo;
-import com.cy.platform.generation.server.domain.mapper.TableInfoMapper;
-import com.cy.platform.generation.server.domain.model.TableInfoPo;
-import com.cy.platform.generation.server.domain.transfor.DataSourceTransfor;
-import com.cy.platform.generation.server.domain.vo.TableInfoVo;
-import com.cy.platform.generation.server.domain.vo.TableListVo;
-import com.cy.platform.generation.server.domain.vo.table.TableParamVo;
-import com.cy.platform.generation.server.service.ITableInfoService;
-import org.springframework.stereotype.Service;
+import server.common.ServiceAssert;
+import server.domain.mapper.TableInfoMapper;
+import server.domain.model.TableInfoPo;
+import server.domain.transfor.DataSourceTransfor;
+import server.domain.vo.TableInfoVo;
+import server.domain.vo.TableListVo;
+import server.domain.vo.table.TableParamVo;
+import server.service.ITableInfoService;
+
 
 import java.util.ArrayList;
 import java.util.List;
