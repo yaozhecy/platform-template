@@ -13,10 +13,17 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "platform.redis")
 public class PlatformRedisProperties {
+    /**
+     * 模式
+     */
     private String mode = "single";
-
+    /**
+     * 数据库
+     */
     private Integer database = 0;
-
+    /**
+     * Host
+     */
     private String host = "localhost";
 
     private Integer port = 6379;

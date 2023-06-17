@@ -31,7 +31,7 @@
         <revision>rc-2.0</revision>
         <maven.test.skip>true</maven.test.skip>
         <spring-boot.version>2.7.7</spring-boot.version>
-        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
     </properties>
 
