@@ -13,7 +13,6 @@
 
     <modules>
         <module>platform-nacos-component</module>
-        <module>platform-general-component</module>
     </modules>
 
 </project>
