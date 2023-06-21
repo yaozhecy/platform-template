@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>platform-server</artifactId>
+        <artifactId>platform-middle</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-gateway-provider</artifactId>
+    <artifactId>platform-gateway-middle</artifactId>
 
     <dependencies>
         <dependency>

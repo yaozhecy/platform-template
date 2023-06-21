@@ -8,11 +8,11 @@
         <artifactId>common-platform</artifactId>
         <version>${revision}</version>
     </parent>
-
-    <artifactId>platform-server</artifactId>
+    <artifactId>platform-middle</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>platform-manage-provider</module>
-        <module>platform-tools-provider</module>
-    </modules>
+
+   <modules>
+       <module>platform-gateway-middle</module>
+   </modules>
+
 </project>
