@@ -28,7 +28,7 @@ public class WebFluxSecurityConfig {
         //step 1、自定义校验过滤器
         http.addFilterAfter(new TokenAuthFilter(), SecurityWebFiltersOrder.AUTHORIZATION);
         //step 2、关闭内部认证、跨站请求伪造
-        http.httpBasic().disable().csrf().disable();
+        http.httpBasic(ServerHttpSecurity.HttpBasicSpec::disable).csrf(ServerHttpSecurity.CsrfSpec::disable);
         return http.build();
     }
 }

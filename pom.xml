@@ -31,7 +31,7 @@
     <properties>
         <revision>rc-2.0</revision>
         <maven.test.skip>true</maven.test.skip>
-        <spring-boot.version>2.7.7</spring-boot.version>
+        <spring-boot.version>3.1.1</spring-boot.version>
         <spring-cloud.version>2022.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
     </properties>
@@ -81,13 +81,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>1.2.15</version>
-            </dependency>
-
-            <!-- sqlserver驱动 -->
-            <dependency>
-                <groupId>com.microsoft.sqlserver</groupId>
-                <artifactId>sqljdbc4</artifactId>
-                <version>4.0</version>
             </dependency>
 
             <dependency>
