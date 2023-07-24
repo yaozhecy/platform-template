@@ -8,7 +8,7 @@
         <artifactId>platform-model</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-redis-model</artifactId>
+    <artifactId>platform-redis-middle</artifactId>
 
     <dependencies>
         <dependency>

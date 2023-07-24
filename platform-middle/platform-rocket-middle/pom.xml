@@ -8,7 +8,7 @@
         <artifactId>platform-model</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-mq-model</artifactId>
+    <artifactId>platform-rocket-middle</artifactId>
 
     <dependencies>
         <dependency>

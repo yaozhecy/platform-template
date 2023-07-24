@@ -11,8 +11,12 @@
     <artifactId>platform-middle</artifactId>
     <packaging>pom</packaging>
 
-   <modules>
-       <module>platform-gateway-middle</module>
-   </modules>
-
+    <modules>
+        <!-- 网关中间件 -->
+        <module>platform-gateway-middle</module>
+        <!-- redis中间件 -->
+        <module>platform-redis-middle</module>
+        <!-- RocketMq中间件 -->
+        <module>platform-rocket-middle</module>
+    </modules>
 </project>

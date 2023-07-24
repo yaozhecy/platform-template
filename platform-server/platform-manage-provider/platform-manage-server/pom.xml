@@ -25,7 +25,7 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-redis-model</artifactId>
+            <artifactId>platform-redis-middle</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
