@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,7 @@ public class AccessLogGlobalFilter implements GlobalFilter {
             //filter的后置处理
             .then(Mono.fromRunnable(() -> {
                 ServerHttpResponse response = exchange.getResponse();
-                HttpStatus statusCode = response.getStatusCode();
+                HttpStatusCode statusCode = response.getStatusCode();
                 log.info("请求路径:{},远程IP地址:{},响应码:{},响应时间:{}",
                     path, remoteAddress, statusCode, System.currentTimeMillis() - startTime);
             }));

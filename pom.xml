@@ -25,6 +25,7 @@
         <module>platform-component</module>
         <!-- 服务模块 -->
         <module>platform-server</module>
+        <!-- 中间件模块 -->
         <module>platform-middle</module>
     </modules>
 
