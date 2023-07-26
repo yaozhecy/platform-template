@@ -59,12 +59,6 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-model</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.cy</groupId>
             <artifactId>platform-db-model</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -72,6 +66,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.76</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
