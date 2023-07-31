@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    # 使用druid连接池
+    url: jdbc:mysql://10.10.1.16:3306/tools
+    username: develop
+    password: cyP@ssW0rd
+    driverClassName: com.mysql.cj.jdbc.Driver

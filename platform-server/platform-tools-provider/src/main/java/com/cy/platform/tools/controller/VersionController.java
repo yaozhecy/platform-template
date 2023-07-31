@@ -1,17 +1,18 @@
 package com.cy.platform.tools.controller;
 
-import com.alibaba.fastjson2.JSONObject;
-import com.cy.platform.model.redis.component.RedisHelper;
+import com.cy.platform.tools.thread.CommonSyncTools;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/version")
+@Slf4j
 public class VersionController {
     @Resource
-    private RedisHelper redisHelper;
+    private CommonSyncTools commonSyncTools;
 
     @GetMapping("/info")
     public String info() {
@@ -20,6 +21,8 @@ public class VersionController {
 
     @GetMapping("/redisinfo")
     public String queryRedisInfo() {
-        return JSONObject.toJSONString(redisHelper.getInfo());
+        commonSyncTools.sync();
+        log.info("sync success");
+        return "success";
     }
 }

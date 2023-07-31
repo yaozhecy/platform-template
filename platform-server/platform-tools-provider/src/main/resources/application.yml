@@ -1,3 +1,8 @@
-platform:
-  redis:
-    host: 10.10.1.3
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: db,local
+  application:
+    name: tools-platform

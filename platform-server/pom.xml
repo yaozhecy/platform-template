@@ -8,9 +8,9 @@
         <artifactId>common-platform</artifactId>
         <version>${revision}</version>
     </parent>
-
     <artifactId>platform-server</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>platform-manage-provider</module>
         <module>platform-tools-provider</module>
