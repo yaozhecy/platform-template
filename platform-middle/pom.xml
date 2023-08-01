@@ -12,8 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- 网关中间件 -->
-        <module>platform-gateway-middle</module>
         <!-- redis中间件 -->
         <module>platform-redis-middle</module>
         <!-- RocketMq中间件 -->

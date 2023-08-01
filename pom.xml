@@ -27,6 +27,7 @@
         <module>platform-server</module>
         <!-- 中间件模块 -->
         <module>platform-middle</module>
+        <module>platform-core</module>
     </modules>
 
     <properties>
