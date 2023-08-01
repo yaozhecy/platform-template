@@ -1,13 +1,9 @@
 package com.cy.platform.gateway.security.filter;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.cy.platform.common.http.R;
-import com.cy.platform.gateway.security.bo.PlatformAuthentication;
-import com.cy.platform.gateway.service.IAccountManage;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authorization.AuthorityAuthorizationDecision;
@@ -15,18 +11,13 @@ import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextImpl;
-import org.springframework.security.web.server.WebFilterExchange;
-import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
-import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatcher;
-import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 import reactor.netty.ByteBufMono;
-import reactor.util.context.Context;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -55,7 +46,7 @@ public class TokenAuthFilter implements WebFilter {
                     response.setStatusCode(HttpStatus.UNAUTHORIZED);
                     //step 5、写入Response
                     response.writeAndFlushWith(Mono.just(ByteBufMono.just(response.bufferFactory()
-                            .wrap(JSONObject.toJSONBytes(R.success()))))).subscribe();
+                            .wrap(JSONObject.toJSONString(R.success()).getBytes(StandardCharsets.UTF_8))))).subscribe();
                 }));
     }
 

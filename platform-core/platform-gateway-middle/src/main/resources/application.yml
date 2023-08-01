@@ -4,7 +4,7 @@ spring:
   application:
     name: gateway-server
   profiles:
-    active: nacos,envs,gateway
+    active: nacos,db
   cloud:
     gateway:
       # 全局的跨域处理

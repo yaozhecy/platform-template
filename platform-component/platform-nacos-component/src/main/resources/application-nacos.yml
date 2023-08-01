@@ -6,10 +6,3 @@ spring:
         server-addr: ${platform.nacos.server-addr}
         namespace: ${platform.nacos.namespace}
         group: ${platform.nacos.group}
-    sentinel:
-      transport:
-        #配置sentinel地址,端口
-        dashboard: ${platform.sentinel.url}
-        #客户端IP(sentinel dashboard进行实时监控的主机ip地址)
-        # 默认端口8719端口假如被占用会自动从8719开始依次+1扫描，直到找到未被占用的端口
-        port: ${server.port}
