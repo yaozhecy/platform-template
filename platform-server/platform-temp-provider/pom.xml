@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>common-platform</artifactId>
+        <artifactId>platform-server</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-server</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>platform-temp-provider</artifactId>
 
-    <modules>
-        <module>platform-manage-provider</module>
-        <module>platform-tools-provider</module>
-        <module>platform-temp-provider</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
