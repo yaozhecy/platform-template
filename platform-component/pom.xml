@@ -12,8 +12,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>platform-nacos-component</module>
-        <module>platform-middle-component</module>
+        <!--网关主键-->
+        <module>platform-gateway-middle</module>
     </modules>
 
 </project>

@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -28,14 +27,14 @@ public class AccessLogGlobalFilter implements GlobalFilter {
 
         final long startTime = System.currentTimeMillis();
         return chain
-            //继续调用filter
-            .filter(exchange)
-            //filter的后置处理
-            .then(Mono.fromRunnable(() -> {
-                ServerHttpResponse response = exchange.getResponse();
-                HttpStatusCode statusCode = response.getStatusCode();
-                log.info("请求路径:{},远程IP地址:{},响应码:{},响应时间:{}",
-                    path, remoteAddress, statusCode, System.currentTimeMillis() - startTime);
-            }));
+                //继续调用filter
+                .filter(exchange)
+                //filter的后置处理
+                .then(Mono.fromRunnable(() -> {
+                    ServerHttpResponse response = exchange.getResponse();
+                    HttpStatusCode statusCode = response.getStatusCode();
+                    log.info("请求路径:{},远程IP地址:{},响应码:{},响应时间:{}",
+                            path, remoteAddress, statusCode, System.currentTimeMillis() - startTime);
+                }));
     }
 }

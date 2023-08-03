@@ -5,15 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>platform-core</artifactId>
+        <artifactId>platform-component</artifactId>
         <version>${revision}</version>
     </parent>
     <artifactId>platform-gateway-middle</artifactId>
+    <description>项目网关组件</description>
 
     <dependencies>
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-component</artifactId>
+            <artifactId>platform-nacos-core</artifactId>
             <version>${revision}</version>
         </dependency>
 

@@ -12,7 +12,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- 网关中间件 -->
-        <module>platform-gateway-middle</module>
+        <!-- nacos 核心包 -->
+        <module>platform-nacos-core</module>
+        <!-- 中间件核心包 -->
+        <module>platform-middle-core</module>
     </modules>
 </project>

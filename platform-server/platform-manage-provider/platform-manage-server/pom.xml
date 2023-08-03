@@ -18,7 +18,7 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-component</artifactId>
+            <artifactId>platform-nacos-core</artifactId>
             <version>${revision}</version>
         </dependency>
 

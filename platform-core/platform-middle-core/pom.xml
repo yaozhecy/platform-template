@@ -5,16 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>platform-component</artifactId>
+        <artifactId>platform-core</artifactId>
         <version>${revision}</version>
     </parent>
-
-    <artifactId>platform-middle-component</artifactId>
-
-    <properties>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <artifactId>platform-middle-core</artifactId>
+    <description>中间件核心包（redis、MQ）</description>
 
 </project>

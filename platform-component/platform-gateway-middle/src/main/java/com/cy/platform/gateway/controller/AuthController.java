@@ -20,7 +20,7 @@ public class AuthController {
     private IAccountManage accountManage;
 
     @PostMapping("/login")
-    public Mono<R> login(@RequestBody LoginInfoVO loginInfo) {
+    public Mono<R<?>> login(@RequestBody LoginInfoVO loginInfo) {
         return Mono.just(R.success(accountManage.loginForToken(loginInfo)));
     }
 }
