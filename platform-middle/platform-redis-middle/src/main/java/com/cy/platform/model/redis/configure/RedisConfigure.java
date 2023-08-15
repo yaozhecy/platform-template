@@ -72,7 +72,7 @@ public class RedisConfigure {
 
         //设置JSON转换工具
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
-        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+        //jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
         //设置数据转换器
         redisTemplate.setKeySerializer(new StringRedisSerializer());
