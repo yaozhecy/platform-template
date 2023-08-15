@@ -10,6 +10,5 @@ import java.lang.annotation.*;
 @Documented
 @Import({RedisEnableAutoConfiguration.class})
 public @interface EnablePlatformRedis {
-
     String value() default "";
 }

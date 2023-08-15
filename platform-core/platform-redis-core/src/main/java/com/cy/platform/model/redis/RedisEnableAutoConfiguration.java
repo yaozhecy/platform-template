@@ -9,5 +9,4 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @ComponentScan({"com.cy.platform.model.redis"})
 public class RedisEnableAutoConfiguration {
-
 }

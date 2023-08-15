@@ -29,7 +29,7 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-redis-middle</artifactId>
+            <artifactId>platform-redis-core</artifactId>
             <version>${revision}</version>
         </dependency>
 

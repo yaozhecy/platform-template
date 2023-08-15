@@ -1,6 +1,6 @@
 package com.cy.platform.model.redis.component;
 
-import com.cy.platform.common.json.JackJsonUtils;
+import com.cy.platform.common.json.BasisJackJsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +70,7 @@ public class RedisHelper {
      * @param value 缓存的值
      */
     public <T> void setCacheObject(final String key, final T value) {
-        redisTemplate.opsForValue().set(key, JackJsonUtils.toJsonString(value));
+        redisTemplate.opsForValue().set(key, BasisJackJsonUtils.toJsonString(value));
     }
 
     /**
@@ -82,7 +82,7 @@ public class RedisHelper {
      * @param timeUnit 时间颗粒度
      */
     public <T> void setCacheObject(final String key, final T value, final Long timeout, final TimeUnit timeUnit) {
-        redisTemplate.opsForValue().set(key, JackJsonUtils.toJsonString(value), timeout, timeUnit);
+        redisTemplate.opsForValue().set(key, BasisJackJsonUtils.toJsonString(value), timeout, timeUnit);
     }
 
     /**
@@ -136,7 +136,7 @@ public class RedisHelper {
      */
     public <T> T getCacheObject(final String key, Class<T> cls) {
         ValueOperations<String, String> operation = redisTemplate.opsForValue();
-        return JackJsonUtils.readValue(operation.get(key), cls);
+        return BasisJackJsonUtils.readValue(operation.get(key), cls);
     }
 
     /**
@@ -168,7 +168,7 @@ public class RedisHelper {
      */
     public <T> long setCacheList(final String key, final List<T> dataList) {
         Long count = redisTemplate.opsForList().rightPushAll(key, dataList
-            .stream().map(JackJsonUtils::toJsonString).collect(Collectors.toList()));
+            .stream().map(BasisJackJsonUtils::toJsonString).collect(Collectors.toList()));
         return count == null ? 0 : count;
     }
 
@@ -180,7 +180,7 @@ public class RedisHelper {
      */
     public <T> List<T> getCacheList(final String key, Class<T> cls) {
         return Objects.requireNonNull(redisTemplate.opsForList().range(key, 0, -1))
-            .stream().map(n -> JackJsonUtils.readValue(n, cls)).collect(Collectors.toList());
+            .stream().map(n -> BasisJackJsonUtils.readValue(n, cls)).collect(Collectors.toList());
     }
 
     /**

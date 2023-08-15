@@ -21,7 +21,7 @@ public final class LambdaTools {
      * @param <U>    U
      * @return 队列
      */
-    public static <R, U> List<R> extractList(List<U> source, Function<? super U, ? extends R> mapper) {
+    public static <R, U> List<R> extractList(Collection<U> source, Function<? super U, ? extends R> mapper) {
         if (CollectTools.isEmpty(source)) {
             return new ArrayList<>();
         }
@@ -38,7 +38,7 @@ public final class LambdaTools {
      * @param <U>    U
      * @return 队列
      */
-    public static <R, U> List<R> extractList(List<U> source, Function<? super U, ? extends R> mapper,
+    public static <R, U> List<R> extractList(Collection<U> source, Function<? super U, ? extends R> mapper,
         Predicate<? super U> filter) {
         if (CollectTools.isEmpty(source)) {
             return new ArrayList<>();

@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author 56807
  */
 @Slf4j
-public final class JackJsonUtils {
+public final class BasisJackJsonUtils {
     private static final ObjectMapper OBJECT_MAPPER;
 
     static {
@@ -49,7 +49,7 @@ public final class JackJsonUtils {
         return null;
     }
 
-    private JackJsonUtils() {
+    private BasisJackJsonUtils() {
         throw new UnsupportedOperationException();
     }
 }

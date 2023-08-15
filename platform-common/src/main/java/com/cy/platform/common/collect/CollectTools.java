@@ -46,6 +46,7 @@ public final class CollectTools {
      * @param <T>   T
      * @return 列表
      */
+    @SafeVarargs
     public static <T> List<T> newArrayList(T... param) {
         return Arrays.asList(param);
     }
@@ -58,6 +59,7 @@ public final class CollectTools {
      * @param <T>   T
      * @return 列表
      */
+    @SafeVarargs
     public static <T> List<T> newArrayList(int size, T... param) {
         List<T> list = new ArrayList<>(Math.max(size, param.length));
         list.addAll(Arrays.asList(param));
@@ -71,6 +73,7 @@ public final class CollectTools {
      * @param <T>   T
      * @return Set
      */
+    @SafeVarargs
     public static <T> Set<T> newHashSet(T... param) {
         return new HashSet<>(Arrays.asList(param));
     }
@@ -107,6 +110,7 @@ public final class CollectTools {
      * @param <V>      V
      * @return Map
      */
+    @SafeVarargs
     public static <K, V> Map<K, V> newHashMap(Function<V, K> function, V... values) {
         return newHashMap(function, Arrays.asList(values));
     }

@@ -16,7 +16,7 @@
         <module>platform-nacos-core</module>
         <!-- 中间件核心包 -->
         <module>platform-middle-core</module>
-        <module>platform-redis-middle</module>
+        <module>platform-redis-core</module>
         <module>platform-rocket-middle</module>
     </modules>
 </project>

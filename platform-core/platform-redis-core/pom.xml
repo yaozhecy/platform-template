@@ -8,18 +8,13 @@
         <artifactId>platform-core</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-redis-middle</artifactId>
+    <artifactId>platform-redis-core</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.cy</groupId>
             <artifactId>platform-common</artifactId>
             <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <dependency>

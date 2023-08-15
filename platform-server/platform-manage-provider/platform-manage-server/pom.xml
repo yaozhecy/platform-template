@@ -18,19 +18,13 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-core</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.cy</groupId>
             <artifactId>platform-manage-domain</artifactId>
             <version>${revision}</version>
         </dependency>
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-redis-middle</artifactId>
+            <artifactId>platform-db-model</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
@@ -41,6 +35,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
