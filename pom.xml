@@ -20,7 +20,7 @@
         <!-- 通用工具模块 -->
         <module>platform-common</module>
         <!-- 基础组件包 -->
-        <module>platform-model</module>
+        <module>platform-module</module>
         <!-- 核心中间件包 -->
         <module>platform-core</module>
         <!-- 基础服务包 -->
@@ -71,6 +71,29 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--####################工具类#####################-->
+            <!--hutool 工具类-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.8.1</version>
+            </dependency>
+
+            <!--Apache工具类-->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+
+            <!--瓜娃子工具类-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>32.1.2-jre</version>
+            </dependency>
+            <!--###############################################-->
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-log4j2</artifactId>
@@ -104,12 +127,6 @@
             </dependency>
 
             <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.11.0</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity</artifactId>
                 <version>1.7</version>
@@ -131,12 +148,6 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>1.4.2.Final</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>5.8.1</version>
             </dependency>
 
             <dependency>

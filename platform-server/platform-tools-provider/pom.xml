@@ -29,13 +29,7 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-redis-core</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.cy</groupId>
-            <artifactId>platform-db-model</artifactId>
+            <artifactId>platform-db-module</artifactId>
             <version>${revision}</version>
         </dependency>
 

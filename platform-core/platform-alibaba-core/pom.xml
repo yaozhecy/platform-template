@@ -8,7 +8,6 @@
         <artifactId>platform-core</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-middle-core</artifactId>
-    <description>中间件核心包（redis、MQ）</description>
+    <artifactId>platform-alibaba-core</artifactId>
 
 </project>

@@ -5,16 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>common-platform</artifactId>
+        <artifactId>platform-module</artifactId>
         <version>${revision}</version>
     </parent>
+    <artifactId>platform-base-module</artifactId>
 
-    <artifactId>platform-model</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <!-- 基础通用模块 -->
-        <module>platform-base-model</module>
-        <!-- 通用数据库模版 -->
-        <module>platform-db-model</module>
-    </modules>
 </project>

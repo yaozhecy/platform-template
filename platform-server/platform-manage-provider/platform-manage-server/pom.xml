@@ -12,19 +12,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.cy</groupId>
             <artifactId>platform-manage-domain</artifactId>
             <version>${revision}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-db-model</artifactId>
+            <artifactId>platform-single-core</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
@@ -34,15 +29,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven-deploy-plugin.version}</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
 
             <!--注解插件-->
@@ -62,5 +48,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

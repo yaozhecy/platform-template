@@ -8,13 +8,19 @@
         <artifactId>common-platform</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-core</artifactId>
-    <packaging>pom</packaging>
 
+    <artifactId>platform-module</artifactId>
+    <packaging>pom</packaging>
     <modules>
-        <!--单服务核心配置类-->
-        <module>platform-single-core</module>
-        <!--alibaba 架构服务核心配置类-->
-        <module>platform-alibaba-core</module>
+        <!-- 基础通用模块 -->
+        <module>platform-base-module</module>
+        <!-- 通用数据库模版 -->
+        <module>platform-db-module</module>
+        <!-- Nacos 模块 -->
+        <module>platform-nacos-module</module>
+        <!-- Redis 模块 -->
+        <module>platform-redis-module</module>
+        <!-- RocketMQ 模块 -->
+        <module>platform-rocket-module</module>
     </modules>
 </project>

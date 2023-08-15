@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>platform-model</artifactId>
+        <artifactId>platform-module</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-db-model</artifactId>
+    <artifactId>platform-db-module</artifactId>
 
     <dependencies>
         <dependency>

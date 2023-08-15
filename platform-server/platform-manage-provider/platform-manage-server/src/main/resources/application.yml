@@ -6,4 +6,6 @@ spring:
   application:
     name: manage-server
   profiles:
-    active: db
+    active: db,local
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml

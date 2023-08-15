@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cy</groupId>
-        <artifactId>platform-core</artifactId>
+        <artifactId>platform-module</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>platform-nacos-core</artifactId>
+    <artifactId>platform-nacos-module</artifactId>
     <description>Nacos核心包</description>
 
     <dependencies>
@@ -46,7 +46,7 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-db-model</artifactId>
+            <artifactId>platform-db-module</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
