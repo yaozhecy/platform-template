@@ -19,15 +19,14 @@
     <modules>
         <!-- 通用工具模块 -->
         <module>platform-common</module>
-        <!-- 基础组件模块 -->
+        <!-- 基础组件包 -->
         <module>platform-model</module>
-        <!-- 常用组件模版 -->
-        <module>platform-component</module>
-        <!-- 服务模块 -->
-        <module>platform-server</module>
-        <!-- 中间件模块 -->
-        <module>platform-middle</module>
+        <!-- 核心中间件包 -->
         <module>platform-core</module>
+        <!-- 基础服务包 -->
+        <module>platform-component</module>
+        <!-- 业务服务模块 -->
+        <module>platform-server</module>
     </modules>
 
     <properties>
