@@ -8,8 +8,6 @@ import com.cy.platform.manage.server.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class AccountServiceImpl implements IAccountService {
     @Autowired
@@ -30,12 +28,7 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public AccountInfoVO getAccountInfo(String token) {
-        AccountInfoVO accountInfoVO = new AccountInfoVO();
-        accountInfoVO.setUserId("2");
-        accountInfoVO.setNickname("系统管理员");
-        accountInfoVO.setAvatar("https://s2.loli.net/2022/04/07/gw1L2Z5sPtS8GIl.gif");
-        accountInfoVO.setRoles(List.of("ADMIN"));
-        accountInfoVO.setPerms(List.of("sys:user:edit", "sys:user:delete", "sys:user:add"));
-        return accountInfoVO;
+        accountMapper.selectById("1");
+        return null;
     }
 }

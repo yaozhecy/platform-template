@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    # 使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 默认事务级别
+      default-transaction-isolation: 1
+mybatis-plus:
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: ASSIGN_UUID
+  configuration:
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
