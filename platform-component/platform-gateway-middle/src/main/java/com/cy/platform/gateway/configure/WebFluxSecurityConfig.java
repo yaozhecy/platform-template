@@ -20,7 +20,6 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @Configuration
 @EnableWebFluxSecurity
 public class WebFluxSecurityConfig {
-
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http, IAccountManage accountManage) {
         //step 1、自定义认证过滤器

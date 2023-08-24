@@ -24,12 +24,6 @@
 
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-module</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.cy</groupId>
             <artifactId>platform-db-module</artifactId>
             <version>${revision}</version>
         </dependency>

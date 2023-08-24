@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.cy</groupId>
-            <artifactId>platform-nacos-module</artifactId>
+            <artifactId>platform-common</artifactId>
             <version>${revision}</version>
         </dependency>
 
@@ -44,6 +44,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cy</groupId>
+            <artifactId>platform-db-module</artifactId>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>
