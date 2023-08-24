@@ -16,8 +16,6 @@
         <module>platform-base-module</module>
         <!-- 通用数据库模版 -->
         <module>platform-db-module</module>
-        <!-- Nacos 模块 -->
-        <module>platform-nacos-module</module>
         <!-- Redis 模块 -->
         <module>platform-redis-module</module>
         <!-- RocketMQ 模块 -->
