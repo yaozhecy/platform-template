@@ -25,7 +25,7 @@ public class ProjectManageController {
 
     @PostMapping("/page")
     public PublicResult<IPage<ProjectSimpleVo>> queryList(@RequestParam("current") Long current,
-                                                          @RequestParam("size") Long size, @RequestBody DocParamVo paramVo) {
+        @RequestParam("size") Long size, @RequestBody DocParamVo paramVo) {
         return PublicResult.success(projectManageService.page(current, size));
     }
 
