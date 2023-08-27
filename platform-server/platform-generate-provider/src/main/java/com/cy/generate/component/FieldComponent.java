@@ -20,13 +20,9 @@ public class FieldComponent {
         List<SourceFieldVo> list = new ArrayList<>();
         if (param.getFieldLevel() == FieldLevelEnum.SYSTEM) {
             switch (param.getFieldClass()) {
-                case SYSTEM:
-                case PROJECT:
-                case ENTITY:
-                case FIELD:
+                case SYSTEM, PROJECT, ENTITY, FIELD -> {
+                }
             }
-        } else if (param.getFieldLevel() == FieldLevelEnum.USERDEFINED) {
-
         }
         return list;
     }

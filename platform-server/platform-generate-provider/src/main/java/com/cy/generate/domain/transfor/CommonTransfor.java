@@ -7,7 +7,7 @@ import com.cy.generate.domain.vo.project.item.ProjectSettingVo;
 import com.cy.generate.domain.vo.project.item.ProjectSimpleVo;
 import com.cy.generate.domain.vo.template.TemplateGroupVo;
 import com.cy.generate.domain.vo.template.TemplateInfoVo;
-import org.apache.ibatis.annotations.Mapper;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**

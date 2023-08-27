@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cy.generation.domain.mapper.CommonVersionMapper">
+<mapper namespace="com.cy.generate.domain.mapper.CommonVersionMapper">
     <!--根据业务ID查询当前版本-->
-    <select id="queryCurrentByBusId" resultType="com.cy.generation.domain.dto.CommonVersionDto">
+    <select id="queryCurrentByBusId" resultType="com.cy.generate.domain.dto.CommonVersionDto">
         SELECT
         bb2.CYWID businessId,
         bb2.CYWBM businessCode,

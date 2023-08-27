@@ -6,6 +6,4 @@ package com.cy.generate.core.constant;
  * @author 56807
  */
 public class TemplateTypeEnum {
-
-
 }

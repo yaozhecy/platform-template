@@ -1,5 +1,7 @@
 package com.cy.generate.common;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.Closeable;
 import java.io.IOException;
 
@@ -8,6 +10,7 @@ import java.io.IOException;
  *
  * @author 56807
  */
+@Slf4j
 public final class FileTools {
 
     /**
@@ -20,7 +23,7 @@ public final class FileTools {
             try {
                 closeable.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("关闭文件失败", e);
             }
         }
     }
