@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "generation.properties.downloadPath",
+      "type": "java.lang.String",
+      "description": "Description for generation.properties.downloadPath."
+    },
+    {
+      "name": "generation.properties.onlyOfficeVersion",
+      "type": "java.lang.String",
+      "description": "Description for generation.properties.onlyOfficeVersion."
+    }
+  ]
+}

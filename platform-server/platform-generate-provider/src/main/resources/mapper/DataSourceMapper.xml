@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.generation.domain.mapper.DataSourceMapper">
+
+    <select id="queryPage" resultType="com.cy.generation.domain.vo.DataSourceVo">
+        SELECT
+        bb.IDQBB,
+        sjy.*
+        FROM
+        TB_KZ_SJBB bb
+        INNER JOIN TB_DB_SJY sjy ON bb.CYWBM = sjy.CID
+        LEFT JOIN TB_KZ_SJBB bb2 ON bb2.CYWBM = sjy.CID
+    </select>
+
+    <delete id="deleteTableByDs">
+        DELETE FROM TB_DB_KBXX WHERE CSJYID = #{id}
+    </delete>
+
+    <delete id="deleteColumnByDs">
+        DELETE FROM TB_DB_ZDXX WHERE CSJYID = #{id}
+    </delete>
+</mapper>

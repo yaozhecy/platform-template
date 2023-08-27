@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.generation.domain.mapper.CommonVersionMapper">
+    <!--根据业务ID查询当前版本-->
+    <select id="queryCurrentByBusId" resultType="com.cy.generation.domain.dto.CommonVersionDto">
+        SELECT
+        bb2.CYWID businessId,
+        bb2.CYWBM businessCode,
+        bb2.CBBH version
+        FROM
+        TB_KZ_SJBB bb
+        INNER JOIN TB_KZ_SJBB bb2 ON bb.CYWBM = bb2.CYWBM
+        AND bb2.IDQBB = bb2.IBBH
+        WHERE
+        bb.CYWID = #{id}
+    </select>
+
+    <select id="queryBusByVersion">
+        SELECT
+        *
+        FROM
+        TB_KZ_SJBB bb
+        INNER JOIN TB_DB_SJY sjy ON bb.CYWBM = sjy.CBM
+    </select>
+</mapper>

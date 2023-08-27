@@ -16,7 +16,7 @@
             <artifactId>platform-manage-domain</artifactId>
             <version>${revision}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>com.cy</groupId>
             <artifactId>platform-single-core</artifactId>

@@ -15,5 +15,6 @@
         <module>platform-manage-provider</module>
         <module>platform-tools-provider</module>
         <module>platform-temp-provider</module>
+        <module>platform-generate-provider</module>
     </modules>
 </project>

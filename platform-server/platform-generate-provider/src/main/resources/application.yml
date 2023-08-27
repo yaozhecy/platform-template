@@ -1,0 +1,37 @@
+server:
+  port: 6234
+  servlet:
+    context-path: /codegeneration
+spring:
+  #静态资源配置，配置后可以直接访问前端界面
+  resources:
+    static-locations: classpath:/views/
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  #静态资源配置，配置后可以直接访问前端界面
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySQL配置
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.10.1.16:3306/code_gener?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: develop
+    password: cyP@ssW0rd
+    druid:
+      default-transaction-isolation: 1
+mybatis-plus:
+  typeEnumsPackage: com.cy.generation.domain.constant
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: ASSIGN_UUID
+  configuration:
+    jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+generation:
+  properties:
+    downloadPath: http://192.168.200.64:6234/codegeneration/cooperation/download
+    onlyOfficeVersion: 7.0.1
