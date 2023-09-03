@@ -1,10 +1,10 @@
 package com.cy.generate.controller;
 
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.transfor.CommonTransfor;
 import com.cy.generate.domain.vo.template.TemplateGroupVo;
 import com.cy.generate.domain.vo.template.TemplateInfoVo;
 import com.cy.generate.service.ITemplateService;
+import com.cy.platform.common.http.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,38 +23,38 @@ public class TemplateController {
     private ITemplateService templateService;
 
     @GetMapping("/list")
-    public PublicResult<List<TemplateGroupVo>> queryTables() {
-        return PublicResult.success(templateService.list().stream()
+    public R<List<TemplateGroupVo>> queryTables() {
+        return R.success(templateService.list().stream()
                 .map(CommonTransfor.INSTANCE::toVo).collect(Collectors.toList()));
     }
 
     @GetMapping("/group/list")
-    public PublicResult<List<TemplateGroupVo>> queryGroupList() {
-        return PublicResult.success(templateService.queryGroupInfo());
+    public R<List<TemplateGroupVo>> queryGroupList() {
+        return R.success(templateService.queryGroupInfo());
     }
 
     @PostMapping("/group/add")
-    public PublicResult<String> addGroup(@RequestBody TemplateGroupVo vo) {
-        return PublicResult.success(templateService.addGroup(vo));
+    public R<String> addGroup(@RequestBody TemplateGroupVo vo) {
+        return R.success(templateService.addGroup(vo));
     }
 
     @PostMapping("/group/edit")
-    public PublicResult<String> editGroup(@RequestBody TemplateGroupVo vo) {
-        return PublicResult.success();
+    public R<String> editGroup(@RequestBody TemplateGroupVo vo) {
+        return R.success();
     }
 
     @GetMapping("/info/list")
-    public PublicResult<List<TemplateInfoVo>> queryInfoList(@RequestParam String groupId) {
-        return PublicResult.success(templateService.queryInfoList(groupId));
+    public R<List<TemplateInfoVo>> queryInfoList(@RequestParam String groupId) {
+        return R.success(templateService.queryInfoList(groupId));
     }
 
     @PostMapping("/info/save")
-    public PublicResult<String> saveTemplate(@RequestBody TemplateInfoVo vo) {
-        return PublicResult.success(templateService.saveTemplate(vo));
+    public R<String> saveTemplate(@RequestBody TemplateInfoVo vo) {
+        return R.success(templateService.saveTemplate(vo));
     }
 
     @GetMapping("/info/query")
-    public PublicResult<TemplateInfoVo> saveTemplate(@RequestParam String id) {
-        return PublicResult.success(templateService.queryTemplate(id));
+    public R<TemplateInfoVo> saveTemplate(@RequestParam String id) {
+        return R.success(templateService.queryTemplate(id));
     }
 }

@@ -1,10 +1,10 @@
 package com.cy.generate.controller;
 
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.vo.CodeInfoVo;
 import com.cy.generate.domain.vo.CodeParamsVo;
 import com.cy.generate.domain.vo.code.CodeListVo;
 import com.cy.generate.service.IGenerationService;
+import com.cy.platform.common.http.R;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,15 +24,15 @@ public class GenerationController {
     private IGenerationService generationService;
 
     @GetMapping("/generation")
-    public PublicResult<String> generation(@RequestParam("id") String id) {
+    public R<String> generation(@RequestParam("id") String id) {
         generationService.generation(id);
-        return PublicResult.success();
+        return R.success();
     }
 
     @GetMapping("/generation/code")
-    public PublicResult<CodeInfoVo> generationCode(@RequestParam("ds") String dsId,
+    public R<CodeInfoVo> generationCode(@RequestParam("ds") String dsId,
                                                    @RequestParam("table") String tableId) {
-        return PublicResult.success(generationService.generationCode(dsId, tableId));
+        return R.success(generationService.generationCode(dsId, tableId));
     }
 
     /**
@@ -44,9 +44,9 @@ public class GenerationController {
      * @return 生成结果
      */
     @GetMapping("/generation/code2")
-    public PublicResult<CodeListVo> generationCode(@RequestParam("tg") String tgId, @RequestParam("ds") String dsId,
+    public R<CodeListVo> generationCode(@RequestParam("tg") String tgId, @RequestParam("ds") String dsId,
                                                    @RequestParam("table") String tableId) {
-        return PublicResult.success(generationService.generationCode(tgId, dsId, tableId));
+        return R.success(generationService.generationCode(tgId, dsId, tableId));
     }
 
     //todo:单模板代码生成

@@ -1,9 +1,9 @@
 package com.cy.generate.controller;
 
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.vo.ColumnInfoVo;
 import com.cy.generate.domain.vo.ColumnListVo;
 import com.cy.generate.service.IColumnInfoService;
+import com.cy.platform.common.http.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,18 +21,18 @@ public class ColumnInfoController {
     private IColumnInfoService columnInfoService;
 
     @GetMapping("/list")
-    public PublicResult<List<ColumnInfoVo>> queryList(@RequestParam("id") String id) {
-        return PublicResult.success(columnInfoService.queryColumnList(id));
+    public R<List<ColumnInfoVo>> queryList(@RequestParam("id") String id) {
+        return R.success(columnInfoService.queryColumnList(id));
     }
 
     @GetMapping("/info")
-    public PublicResult<ColumnInfoVo> queryInfo(@RequestParam("id") String id) {
-        return PublicResult.success(columnInfoService.queryColumnInfo(id));
+    public R<ColumnInfoVo> queryInfo(@RequestParam("id") String id) {
+        return R.success(columnInfoService.queryColumnInfo(id));
     }
 
     @PostMapping("/update")
-    public PublicResult<String> updateInfo(@RequestBody ColumnListVo list) {
+    public R<String> updateInfo(@RequestBody ColumnListVo list) {
         columnInfoService.updateColumnInfo(list);
-        return PublicResult.success();
+        return R.success();
     }
 }

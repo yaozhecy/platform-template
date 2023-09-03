@@ -2,11 +2,11 @@ package com.cy.generate.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.vo.TableInfoVo;
 import com.cy.generate.domain.vo.TableListVo;
 import com.cy.generate.domain.vo.table.TableParamVo;
 import com.cy.generate.service.ITableInfoService;
+import com.cy.platform.common.http.R;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,30 +26,30 @@ public class TableInfoController {
     private ITableInfoService tableInfoService;
 
     @PostMapping("/page")
-    public PublicResult<IPage<TableInfoVo>> queryTablesPage(@RequestParam("current") int current,
+    public R<IPage<TableInfoVo>> queryTablesPage(@RequestParam("current") int current,
                                                             @RequestParam("size") int size, @RequestBody TableParamVo param) {
         if (StringUtils.isBlank(param.getId())) {
-            return PublicResult.success(new Page<>());
+            return R.success(new Page<>());
         }
-        return PublicResult.success(tableInfoService.queryTablePage(current, size, param));
+        return R.success(tableInfoService.queryTablePage(current, size, param));
     }
 
     @GetMapping("/list")
-    public PublicResult<List<TableInfoVo>> queryTables(@RequestParam("id") String id) {
+    public R<List<TableInfoVo>> queryTables(@RequestParam("id") String id) {
         if (StringUtils.isBlank(id)) {
-            return PublicResult.success(new ArrayList<>());
+            return R.success(new ArrayList<>());
         }
-        return PublicResult.success(tableInfoService.queryTableList(id));
+        return R.success(tableInfoService.queryTableList(id));
     }
 
     @GetMapping("/info")
-    public PublicResult<TableInfoVo> queryTableInfo(@RequestParam("id") String id) {
-        return PublicResult.success(tableInfoService.queryTableInfo(id));
+    public R<TableInfoVo> queryTableInfo(@RequestParam("id") String id) {
+        return R.success(tableInfoService.queryTableInfo(id));
     }
 
     @PostMapping("/update")
-    public PublicResult<String> update(@RequestBody TableListVo list) {
+    public R<String> update(@RequestBody TableListVo list) {
         tableInfoService.updateTableInfo(list);
-        return PublicResult.success();
+        return R.success();
     }
 }

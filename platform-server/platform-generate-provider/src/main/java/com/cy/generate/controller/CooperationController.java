@@ -1,8 +1,8 @@
 package com.cy.generate.controller;
 
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.dto.Track;
 import com.cy.generate.service.ICooperationDocService;
+import com.cy.platform.common.http.R;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,13 @@ public class CooperationController {
     private ICooperationDocService cooperationDocService;
 
     @GetMapping("/list")
-    public PublicResult<?> queryFileList() {
-        return PublicResult.success(cooperationDocService.queryList());
+    public R<?> queryFileList() {
+        return R.success(cooperationDocService.queryList());
     }
 
     @PostMapping("/upload")
-    public PublicResult<?> upload(@RequestParam("file") MultipartFile file) {
-        return PublicResult.success(cooperationDocService.saveFile(file));
+    public R<?> upload(@RequestParam("file") MultipartFile file) {
+        return R.success(cooperationDocService.saveFile(file));
     }
 
     @GetMapping(value = "/download")
@@ -48,12 +48,12 @@ public class CooperationController {
     }
 
     @GetMapping(path = "/history")
-    public PublicResult<List<?>> queryHistory(String docCode) {
-        return PublicResult.success(cooperationDocService.queryHistory(docCode));
+    public R<List<?>> queryHistory(String docCode) {
+        return R.success(cooperationDocService.queryHistory(docCode));
     }
 
     @GetMapping(path = "/historydata")
-    public PublicResult<?> queryHistoryData(String docCode, Integer version) {
-        return PublicResult.success(cooperationDocService.queryHistoryData(docCode, version));
+    public R<?> queryHistoryData(String docCode, Integer version) {
+        return R.success(cooperationDocService.queryHistoryData(docCode, version));
     }
 }

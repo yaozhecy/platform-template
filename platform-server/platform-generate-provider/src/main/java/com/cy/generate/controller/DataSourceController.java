@@ -2,12 +2,12 @@ package com.cy.generate.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-import com.cy.generate.common.PublicResult;
 import com.cy.generate.domain.vo.CommonDataVo;
 import com.cy.generate.domain.vo.DataSourceQueryParam;
 import com.cy.generate.domain.vo.DataSourceVo;
 import com.cy.generate.domain.vo.doc.DocParamVo;
 import com.cy.generate.service.IDataSourceService;
+import com.cy.platform.common.http.R;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -39,57 +39,57 @@ public class DataSourceController {
 
     @PostMapping("/list")
     @ApiOperation(value = "查询列表2", notes = "")
-    public PublicResult<List<DataSourceVo>> queryList(@RequestBody DataSourceQueryParam param) {
-        return PublicResult.success(dataSourceService.queryDataSourceList(param));
+    public R<List<DataSourceVo>> queryList(@RequestBody DataSourceQueryParam param) {
+        return R.success(dataSourceService.queryDataSourceList(param));
     }
 
     @PostMapping("/page")
-    public PublicResult<IPage<DataSourceVo>> queryPage(@RequestParam("current") long current,
-                                                       @RequestParam("size") long size, @RequestBody DocParamVo paramVo) {
-        return PublicResult.success(dataSourceService.queryDataSourcePage(current, size, paramVo));
+    public R<IPage<DataSourceVo>> queryPage(@RequestParam("current") long current,
+        @RequestParam("size") long size, @RequestBody DocParamVo paramVo) {
+        return R.success(dataSourceService.queryDataSourcePage(current, size, paramVo));
     }
 
     @PostMapping("/add")
-    public PublicResult<?> addDataSource(@RequestBody DataSourceVo dataSourceVo) {
+    public R<?> addDataSource(@RequestBody DataSourceVo dataSourceVo) {
         dataSourceService.addSourceInfo(dataSourceVo);
-        return PublicResult.success();
+        return R.success();
     }
 
     @GetMapping("/info")
-    public PublicResult<DataSourceVo> queryInfo(@RequestParam("id") String id) {
-        return PublicResult.success(dataSourceService.queryInfo(id));
+    public R<DataSourceVo> queryInfo(@RequestParam("id") String id) {
+        return R.success(dataSourceService.queryInfo(id));
     }
 
     @PostMapping("/valid")
-    public PublicResult<String> validDb(@RequestBody DataSourceVo vo) {
+    public R<String> validDb(@RequestBody DataSourceVo vo) {
         dataSourceService.validDb(vo);
-        return PublicResult.success();
+        return R.success();
     }
 
     @GetMapping("/delete")
-    public PublicResult<String> delete(@RequestParam("id") String id) {
+    public R<String> delete(@RequestParam("id") String id) {
         dataSourceService.delete(id);
-        return PublicResult.success();
+        return R.success();
     }
 
     @GetMapping("/common/data")
-    public PublicResult<CommonDataVo> queryCommonData(@RequestParam("id") String id) {
-        return PublicResult.success(dataSourceService.queryCommonDataVo(id));
+    public R<CommonDataVo> queryCommonData(@RequestParam("id") String id) {
+        return R.success(dataSourceService.queryCommonDataVo(id));
     }
 
     @PostMapping("/common/data/update")
-    public PublicResult<String> updateCommonData(@RequestBody CommonDataVo vo) {
+    public R<String> updateCommonData(@RequestBody CommonDataVo vo) {
         dataSourceService.updateCommonDataVo(vo);
-        return PublicResult.success();
+        return R.success();
     }
 
     @PostMapping("/upload")
     @ResponseBody
-    public PublicResult<String> uploadFileDir(MultipartFile file) throws Exception {
+    public R<String> uploadFileDir(MultipartFile file) throws Exception {
         String id = IdWorker.getIdStr();
         File tempDir = new File("tempfile");
         if (!tempDir.exists() && tempDir.mkdirs()) {
-            return PublicResult.failure("文件创建失败");
+            return R.failure("文件创建失败");
         }
 
         File dir = new File("tempfile" + File.separator + id + "_" + file.getOriginalFilename());
@@ -97,7 +97,7 @@ public class DataSourceController {
             outputStream.write(file.getBytes());
             outputStream.flush();
         }
-        return PublicResult.success(id);
+        return R.success(id);
     }
 
     @GetMapping(value = "/download")
