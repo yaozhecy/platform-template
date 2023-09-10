@@ -44,9 +44,9 @@ public class DataSourceController {
     }
 
     @PostMapping("/page")
-    public R<IPage<DataSourceVo>> queryPage(@RequestParam("current") long current,
-        @RequestParam("size") long size, @RequestBody DocParamVo paramVo) {
-        return R.success(dataSourceService.queryDataSourcePage(current, size, paramVo));
+    public R<IPage<DataSourceVo>> queryPage(@RequestBody DocParamVo param) {
+        return R.success(dataSourceService.queryDataSourcePage(param.getCurrent(),
+            param.getSize(), param));
     }
 
     @PostMapping("/add")

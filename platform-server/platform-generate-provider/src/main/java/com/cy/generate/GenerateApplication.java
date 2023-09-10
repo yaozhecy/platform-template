@@ -7,10 +7,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+/**
+ * 启动类
+ *
+ * @author chenyang
+ */
 @SpringBootApplication
 public class GenerateApplication {
     public static void main(String[] args) {
-        ApplicationContext applicationContext =SpringApplication.run(GenerateApplication.class, args);
+        ApplicationContext applicationContext = SpringApplication.run(GenerateApplication.class, args);
 
         SqlSessionFactory sqlSessionFactory = applicationContext.getBean(SqlSessionFactory.class);
         sqlSessionFactory.getConfiguration().getTypeHandlerRegistry().register(DataSourceType.class, CyEnumTypeHandler.class);

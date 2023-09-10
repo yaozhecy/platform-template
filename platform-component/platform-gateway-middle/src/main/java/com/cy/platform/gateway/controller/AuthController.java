@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 用户认证接口
+ * @author chenyang
  */
 @RestController
 @RequestMapping("/auth")
