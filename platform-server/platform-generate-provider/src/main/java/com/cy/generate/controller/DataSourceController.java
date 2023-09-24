@@ -49,7 +49,7 @@ public class DataSourceController {
             param.getSize(), param));
     }
 
-    @PostMapping("/add")
+    @PutMapping
     public R<?> addDataSource(@RequestBody DataSourceVo dataSourceVo) {
         dataSourceService.addSourceInfo(dataSourceVo);
         return R.success();

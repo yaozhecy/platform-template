@@ -49,7 +49,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSourcePo>
-        implements IDataSourceService {
+    implements IDataSourceService {
     @Autowired
     private CommonDataMapper commonDataMapper;
     @Autowired
@@ -60,17 +60,17 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
     @Override
     public IPage<DataSourceVo> queryDataSourcePage(long current, long size, DocParamVo paramVo) {
         return baseMapper.selectPage(new Page<>(current, size),
-                        new LambdaQueryWrapper<DataSourcePo>().like(StringUtils.isNotBlank(paramVo.getName()),
-                                        DataSourcePo::getName, paramVo.getName())
-                                .orderByDesc(DataSourcePo::getCreateTime))
-                .convert(DataSourceTransfor.INSTANCE::toVo);
+                new LambdaQueryWrapper<DataSourcePo>().like(StringUtils.isNotBlank(paramVo.getName()),
+                        DataSourcePo::getName, paramVo.getName())
+                    .orderByDesc(DataSourcePo::getCreateTime))
+            .convert(DataSourceTransfor.INSTANCE::toVo);
     }
 
     @Override
     public List<DataSourceVo> queryDataSourceList(DataSourceQueryParam param) {
         return baseMapper.selectList(new LambdaQueryWrapper<DataSourcePo>().like(StringUtils
-                        .isNotBlank(param.getQuery()), DataSourcePo::getName, param.getQuery()))
-                .stream().map(DataSourceTransfor.INSTANCE::toVo).collect(Collectors.toList());
+                .isNotBlank(param.getQuery()), DataSourcePo::getName, param.getQuery()))
+            .stream().map(DataSourceTransfor.INSTANCE::toVo).collect(Collectors.toList());
     }
 
     @Override
@@ -85,7 +85,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
         if (po.getDbType() == DataSourceType.Excel) {
             //读取Excel文件
             String filePath = "tempfile" + File.separator + dataSourceVo.getFileId() +
-                    "_" + dataSourceVo.getDbName();
+                "_" + dataSourceVo.getDbName();
             FileInputStream fileInputStream = null;
             try {
                 fileInputStream = new FileInputStream(filePath);
@@ -166,7 +166,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
         //step 2.解析库表列表数据
         int rows = sheet.getLastRowNum();
         List<TableInfoPo> list = tableInfoService.list(new LambdaQueryWrapper<TableInfoPo>()
-                .eq(TableInfoPo::getDsId, id).orderByDesc(TableInfoPo::getTbSort));
+            .eq(TableInfoPo::getDsId, id).orderByDesc(TableInfoPo::getTbSort));
         int sort = 0;
         if (list != null && !list.isEmpty()) {
             sort = list.get(0).getTbSort();
@@ -185,7 +185,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
             tablePo.setChineseName(tableName);
             tablePo.setTableName(getCellValue(row, 2));
             tablePo.setEntityName(JdbcToJavaHelper.convertToClassName(
-                    getCellValue(row, 2)));
+                getCellValue(row, 2)));
             tablePo.setEnglishName(this.getCellValue(row, 3));
             String desc = this.getCellValue(row, 4);
             if (StringUtils.isNotBlank(desc)) {
@@ -203,13 +203,13 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
 
         //step 4.批量保存节点数据
         Set<String> tableSet = tablePos.stream().map(TableInfoPo::getTableName)
-                .collect(Collectors.toSet());
+            .collect(Collectors.toSet());
         //step 5.检查是否已经保存了表格信息
         LambdaQueryWrapper<TableInfoPo> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(TableInfoPo::getDsId, id).in(TableInfoPo::getTableName, tableSet);
         List<TableInfoPo> poList = tableInfoService.list(queryWrapper);
         Map<String, TableInfoPo> poMap = poList.stream().collect(Collectors.toMap(
-                TableInfoPo::getTableName, n -> n, (n1, n2) -> n1));
+            TableInfoPo::getTableName, n -> n, (n1, n2) -> n1));
         List<TableInfoPo> saveList = new ArrayList<>();
         List<TableInfoPo> updateTbList = new ArrayList<>();
         for (TableInfoPo tablePo : tablePos) {
@@ -236,7 +236,7 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
     private void dealColumnPos(String id, Workbook wb, List<TableInfoPo> tablePos) {
         Sheet sheet;
         List<ColumnInfoPo> list = columnInfoService.list(new LambdaQueryWrapper<ColumnInfoPo>()
-                .eq(ColumnInfoPo::getDsId, id).orderByDesc(ColumnInfoPo::getColSort));
+            .eq(ColumnInfoPo::getDsId, id).orderByDesc(ColumnInfoPo::getColSort));
         int sort = 0;
         if (list != null && !list.isEmpty()) {
             sort = list.get(0).getColSort();
@@ -278,13 +278,13 @@ public class DataSourceServiceImpl extends ServiceImpl<DataSourceMapper, DataSou
         }
         //step 4.批量保存节点数据
         Set<String> columnSet = columnPos.stream().map(ColumnInfoPo::getColumnName)
-                .collect(Collectors.toSet());
+            .collect(Collectors.toSet());
         //step 5.检查是否已经保存了表格信息
         LambdaQueryWrapper<ColumnInfoPo> queryWrapper2 = new LambdaQueryWrapper<>();
         queryWrapper2.eq(ColumnInfoPo::getDsId, id).in(ColumnInfoPo::getColumnName, columnSet);
         List<ColumnInfoPo> poList2 = columnInfoService.list(queryWrapper2);
         Map<String, ColumnInfoPo> poMap2 = poList2.stream().collect(Collectors.toMap(
-                ColumnInfoPo::getColumnName, n -> n, (n1, n2) -> n1));
+            ColumnInfoPo::getColumnName, n -> n, (n1, n2) -> n1));
         List<ColumnInfoPo> saveList2 = new ArrayList<>();
         List<ColumnInfoPo> updateTbList2 = new ArrayList<>();
         for (ColumnInfoPo columnInfoPo : columnPos) {
